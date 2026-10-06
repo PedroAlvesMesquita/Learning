@@ -428,3 +428,20 @@ Una fila = un evento de uso.
 ---
 
 # Fin del diccionario
+
+
+8. Tabla: usage_events_stream
+Campo	Tipo	Descripción	Valores posibles	Problemas detectados
+event_id	string	ID evento	Único	Ninguno
+org_id	string	Cliente	IDs válidos	Sin huérfanos
+resource_id	string	Recurso	IDs válidos	Sin inconsistencias
+timestamp	string	Fecha/hora UTC	AAAA-MM-DDTHH:MM	Guardado como texto
+service	string	Servicio	compute, storage…	Limpio
+region	string	Región	7 regiones	Limpio
+metric	string	Métrica	requests, cpu…	Limpio
+value	float	Cantidad	Numérico	1309 texto, 877 vacíos
+unit	string	Unidad	count, hours…	2075 vacíos
+cost_usd_increment	float	Costo	≥ 0	216 negativos
+schema_version	int	Versión	1, 2	Limpio
+carbon_kg	float	Carbono	Solo v2	Ausente en v1
+genai_tokens	int	Tokens IA	Solo genai v2	Limpio
